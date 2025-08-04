@@ -246,7 +246,7 @@ Especially, the memory footprint of performing multiple reads of the same file w
       y-tick-step: 1, 
       y-min: 2, 
       y-max: 7,
-      y-label: "Max RSS (GB)",
+      y-label: "Max RSS [GB]",
       x-grid: true, y-grid: true,
       legend: "inner-north-west",
       {
@@ -291,7 +291,7 @@ Especially, the memory footprint of performing multiple reads of the same file w
 
 
 #tip()[
-    Checkout the new features in the Awkward Array world! \
+    Checkout the new features and improvements in the Awkward Array world! \
     \
     If you're already a coffea user: `coffea v2025.7` (July) release (and newer) includes all of these improvements. \
     \

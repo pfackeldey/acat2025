@@ -1,7 +1,7 @@
 #let poster(body) = {
   grid(
     columns: 1,
-    rows: (10%, 1%, 85%, 4%),
+    rows: (10%, 1%, 85%, 1%, 3%),
     
     // Top = title row
     [
@@ -40,6 +40,7 @@
       )
     ],
 
+    // Second row = horizontal line
     [
     #box(
       stroke: none,
@@ -62,6 +63,20 @@
         columns(2)[#body]
       )
     ],
+
+
+    // Fourth row = horizontal line
+    [
+    #box(
+      stroke: none,
+      fill: white,
+      height: 100%,
+      width: 100%,
+      inset: 1%,
+
+      line(length: 100%, stroke: (paint: black, thickness: 4pt, cap: "round"))
+      )
+    ],
     
     // Bottom = footer
     [
@@ -70,9 +85,30 @@
         fill: white,
         height: 100%,
         width: 100%,
-        inset: 4%,
+        inset: 1%,
 
-        align(horizon+center)[#emoji.mail peter.fackeldey\@cern.ch]
+        grid(
+          columns: (60%, 40%),
+          rows: 100%,
+          stroke: none,
+          
+          // Left
+          [
+            #place(horizon+left)[
+              #text(size: 36pt)[
+                *Acknowledgements:* This work was supported by the National Science Foundation under Cooperative Agreement PHY-2323298 and grant OAC-2103945
+              ]
+            ]
+          ],
+          // Right
+          [
+            #place(horizon+right)[
+              #text(size: 36pt)[
+                *Contact:*\ #link("peter.fackeldey\@cern.ch")[peter.fackeldey\@cern.ch]
+              ]
+            ]
+          ]
+        )
       )
     ]
   )
