@@ -227,7 +227,7 @@ These Vector improvements further bring down the runtime of the trijet mass reco
 Several memory improvements have been made in Awkward Array and Uproot resolving cyclic references on the Python side.
 This allows for more efficient memory management and thus usually reduces the memory footprint of physics analyses.
 
-Especially, the memory footprint of performing multiple reads of the same file with Uproot has been improved significantly since #link("https://github.com/scikit-hep/uproot5/releases/tag/v5.4.1")[v5.4.1], essentially eliminating growing memory usage, see the following figure (with Python's GC disabled):
+Especially, the memory footprint of performing multiple reads of the same file with Uproot has been improved significantly since #link("https://github.com/scikit-hep/uproot5/releases/tag/v5.4.1")[v5.4.1], essentially eliminating growing memory usage, see the following figure:
 
 #align(center,
   canvas({

@@ -39,6 +39,10 @@ def main(argv):
     # v5.6.4: latest version at the time of writing
     # v5.4.1: last version with this memory regression (v5.4.2 fixed it)
     for version in ("5.6.4", "5.4.1"):
+        if FLAGS.gc:
+            import gc
+
+            gc.collect()
         print(
             f"Running '{loop_iterate.__name__}' with uproot=={version} and python 3.12"
         )
@@ -47,7 +51,7 @@ def main(argv):
         )
 
         with open(f"uproot_v{version}__maxrss.json", "w") as f:
-            json.dump(maxrss, f)
+            json.dump(maxrss, f, indent=4)
 
 
 if __name__ == "__main__":
