@@ -20,7 +20,6 @@ def loop_iterate(rootfile):
     import uproot
     import resource
 
-
     filenames = [{rootfile: "tree"}] * 2
     maxrss = []
     for batch in uproot.iterate(filenames, step_size="500 MB", library="np"):
@@ -39,11 +38,15 @@ def main(argv):
     # run
     # v5.6.4: latest version at the time of writing
     # v5.4.1: last version with this memory regression (v5.4.2 fixed it)
-    for version in ('5.6.4', '5.4.1'):
-        print(f"Running '{loop_iterate.__name__}' with uproot=={version} and python 3.12")
-        maxrss = Env(f"uproot=={version}", python="3.12").run(loop_iterate, rootfile=FLAGS.rootfile)
+    for version in ("5.6.4", "5.4.1"):
+        print(
+            f"Running '{loop_iterate.__name__}' with uproot=={version} and python 3.12"
+        )
+        maxrss = Env(f"uproot=={version}", python="3.12").run(
+            loop_iterate, rootfile=FLAGS.rootfile
+        )
 
-        with open(f'uproot_v{version}__maxrss.json', 'w') as f:
+        with open(f"uproot_v{version}__maxrss.json", "w") as f:
             json.dump(maxrss, f)
 
 
