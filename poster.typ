@@ -248,23 +248,23 @@ Especially, the memory footprint of performing multiple reads of the same file w
       x-grid: true, y-grid: true,
       legend: "inner-north-west",
       {
-        // read values
-        let v541 = array(json("uproot_v5.4.1__maxrss.json"))
-        let v564 = array(json("uproot_v5.6.4__maxrss.json"))
+        // start & stop value slice
+        let start = 1
+        let stop = 9
+
+        // read values (only measurements 1-8)
+        let v541 = array(json("uproot_v5.4.1__maxrss.json")).slice(start, stop)
+        let v564 = array(json("uproot_v5.6.4__maxrss.json")).slice(start, stop)
 
         // convert to GB
         let v541GB = v541.map(x => x / calc.pow(1024., 3))
         let v564GB = v564.map(x => x / calc.pow(1024., 3))
 
-        // start & stop value slice
-        let start = 1
-        let stop = 9
+        // domain: (1, 2, 3, 4, 5, 6, 7, 8)
+        let domain = array(range(1, v541GB.len() + 1))
 
-        let domain = array(range(v541GB.len()-1)).slice(start, stop)
-
-        let v541points = domain.zip(v541GB.slice(start, stop))
         plot.add(
-          v541points, 
+          domain.zip(v541GB), 
           label: " Uproot v5.4.1", 
           mark: "o", 
           mark-size: 0.3, 
@@ -272,9 +272,8 @@ Especially, the memory footprint of performing multiple reads of the same file w
           style: (stroke: black, thickness: 3.0),
         )
         
-        let v564points = domain.zip(v564GB.slice(start, stop))
         plot.add(
-          v564points, 
+          domain.zip(v564GB), 
           label: " Uproot v5.6.4", 
           mark: "o", 
           mark-size: 0.3, 
