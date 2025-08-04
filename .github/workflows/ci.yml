@@ -1,0 +1,40 @@
+name: Render
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  render-paper:
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up timestamp
+        id: timestamp
+        run: echo "timestamp=$(date +'%Y-%m-%d_%H_%M')" >> $GITHUB_OUTPUT
+
+      - name: Set up Typst
+        uses: typst-community/setup-typst@v4
+
+      - name: Compile Typst to PDF
+        run: typst compile --pdf-standard a-2b poster.typ poster.pdf
+
+      - name: Rename PDF with timestamp
+        run: |
+          mkdir output
+          mv poster.pdf "./output/${{ steps.timestamp.outputs.timestamp }}.pdf"
+
+      - name: Deploy to gh-pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./output  # Current directory
+          publish_branch: gh-pages
+          keep_files: true  # Keeps existing files in gh-pages branch
