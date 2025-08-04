@@ -279,14 +279,16 @@ Especially, the memory footprint of performing multiple reads of the same file w
   })
 )
 
-
-
-
-#tip()[
+#clue(
+  accent-color: princeton-orange,
+  title: "Additional information and tips",
+  icon: emoji.clip,
+)[
     Checkout the new features and improvements in the Awkward Array world! \
     \
     If you're already a coffea user: `coffea v2025.7` (July) release (and newer) includes all of these improvements. \
     \
     Stay up-to-date and join us on the IRIS-HEP Slack workspace at #link("iris-hep.slack.com")[iris-hep.slack.com].
 ]
+
 ]
