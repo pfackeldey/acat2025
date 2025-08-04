@@ -19,7 +19,7 @@
                 
           // Left
           [
-            #place(horizon+left, figure(image("princeton-logo.svg", width: auto, height: 250pt)))
+            #place(horizon+left, figure(image("princeton-logo.svg", width: auto, height: 240pt)))
           ],
           // Center
           [
@@ -34,7 +34,7 @@
               ]  
           ],
           [
-            #place(horizon+right, figure(image("Iris-hep-5-just-graphic.svg", width: auto, height: 250pt)))
+            #place(horizon+right, figure(image("Iris-hep-5-just-graphic.svg", width: auto, height: 240pt)))
           ]
         )
       )
