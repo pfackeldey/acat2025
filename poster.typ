@@ -180,7 +180,7 @@ print(rntuple.arrays(["Age", "Cost", "Nation"]))
 = #emoji.fire Performance gains in Awkward Array and Vector
 
 Several performance improvements have been made in Awkward Array and Vector.
-For example, the #link("https://github.com/iris-hep/idap-200gbps/blob/main/agc-coffea-2024.ipynb")[trijet mass reconstruction of the _Analysis Grand Challenge_ (AGC)] runs ~15-20% faster since Awkward Array #link("https://github.com/scikit-hep/awkward/releases/tag/v2.7.3")[v2.7.3].
+For example, the #link("https://github.com/iris-hep/idap-200gbps/blob/main/agc-coffea-2024.ipynb")[trijet mass reconstruction of the _Analysis Grand Challenge_ (AGC)] runs \~15-20% faster since Awkward Array #link("https://github.com/scikit-hep/awkward/releases/tag/v2.7.3")[v2.7.3].
 This is achieved by reducing the metadata overhead on the Python side of Awkward Array for any `ak.layout.RecordArray`, see the improvements for the trijet mass reconstruction with 100.000 events below:
 
 #underline[CPU backend:] #h(1fr) Relative improvement:
