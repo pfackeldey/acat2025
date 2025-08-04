@@ -16,20 +16,16 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Set up timestamp
-        id: timestamp
-        run: echo "timestamp=$(date +'%Y-%m-%d_%H_%M')" >> $GITHUB_OUTPUT
-
       - name: Set up Typst
         uses: typst-community/setup-typst@v4
 
       - name: Compile Typst to PDF
         run: typst compile --pdf-standard a-2b poster.typ poster.pdf
 
-      - name: Rename PDF with timestamp
+      - name: Move PDF
         run: |
           mkdir output
-          mv poster.pdf "./output/${{ steps.timestamp.outputs.timestamp }}.pdf"
+          mv poster.pdf "./output/poster.pdf"
 
       - name: Deploy to gh-pages
         uses: peaceiris/actions-gh-pages@v3
