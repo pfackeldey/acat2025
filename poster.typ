@@ -211,7 +211,7 @@ vector.register_awkward()
 vec = vector.awk([{"x": 1.0, "y": 2.0, "z": 3.0, "t": 4.0}])
 
 # pip install --upgrade "vector>1.6.0"
-$timeit vec.rho
+%timeit vec.rho
 # 305 μs ± 659 ns
 
 # pip install --upgrade "vector<1.6.0"
