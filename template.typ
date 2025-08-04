@@ -10,31 +10,35 @@
         fill: white,
         height: 100%,
         width: 100%,
-        inset: 4%,
+        inset: 1%,
 
         grid(
-          columns: (12%, 76%, 12%),
+          columns: (10%, 78%, 10%),
           rows: 100%,
           stroke: none,
                 
           // Left
           [
-            #place(horizon+left, figure(image("princeton-logo.svg", width: auto, height: 240pt)))
+            #place(horizon+left, figure(image("princeton-logo.svg", width: auto, height: 220pt)))
           ],
           // Center
           [
             #place(horizon+center)[
-                #set text(size: 68pt,
-                fill: black,
-                )
-                *Recent developments in the Awkward Array world* \
-                #set text(size: 48pt)
-                *Peter Fackeldey*, Ianna Osborne, Jim Pivarski \
-                Princeton University
+                #set text(size: 69pt, fill: black)
+                  *Recent developments in the Awkward Array world* \
+                #set text(size: 42pt)
+                  *Peter Fackeldey#super[1]*, 
+                  Iason Krommydas#super[2], 
+                  Ianna Osborne#super[1], 
+                  Jim Pivarski#super[1], 
+                  Andres Rios-Tascon#super[1]
+                  \
+                  Princeton University#super[1],
+                  Rice University#super[2]
               ]  
           ],
           [
-            #place(horizon+right, figure(image("Iris-hep-5-just-graphic.svg", width: auto, height: 240pt)))
+            #place(horizon+right, figure(image("Iris-hep-5-just-graphic.svg", width: auto, height: 220pt)))
           ]
         )
       )

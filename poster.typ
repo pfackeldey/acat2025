@@ -148,6 +148,8 @@ An example of inspecting an RNTuple file with Uproot is shown in the following:
   highlights: (
     (line: 5, start: 15, end: 29, fill: princeton-orange),
   ),
+  display-icon: true,
+  display-name: true,
 )
 ```python
 import uproot
@@ -162,6 +164,8 @@ Reading the RNTuple's contents is as easy as reading TTrees with Uproot:
   languages: codly-languages,
   zebra-fill: princeton-zebra-fill,
   offset-from: <rntuple-1>,
+  display-icon: false,
+  display-name: false,
 )
 ```python
 rntuple = file["Staff"]
@@ -176,16 +180,16 @@ print(rntuple.arrays(["Age", "Cost", "Nation"]))
 = #emoji.fire Performance gains in Awkward Array and Vector
 
 Several performance improvements have been made in Awkward Array and Vector.
-For example, the #link("https://github.com/iris-hep/idap-200gbps/blob/main/agc-coffea-2024.ipynb")[trijet mass reconstruction of the _Analysis Grand Challenge_ (AGC)] runs 25% faster since Awkward Array #link("https://github.com/scikit-hep/awkward/releases/tag/v2.7.3")[v2.7.3].
+For example, the #link("https://github.com/iris-hep/idap-200gbps/blob/main/agc-coffea-2024.ipynb")[trijet mass reconstruction of the _Analysis Grand Challenge_ (AGC)] runs ~15-20% faster since Awkward Array #link("https://github.com/scikit-hep/awkward/releases/tag/v2.7.3")[v2.7.3].
 This is achieved by reducing the metadata overhead on the Python side of Awkward Array for any `ak.layout.RecordArray`, see the improvements for the trijet mass reconstruction with 100.000 events below:
 
-#underline[CPU backend:]
-- Runtime: 29.3 ms ± 434 μs $->$ *25.1* ms ± 126 μs
-- Allocations: 3691 $->$ *2633*
+#underline[CPU backend:] #h(1fr) Relative improvement:
+- Runtime: 29.3 ms ± 434 μs $->$ *25.1 ms ± 126 μs* #h(1fr) *14.3%*
+- Allocations: 3691 $->$ *2633* #h(1fr) *39.3%*
 
 #underline[TypeTracer backend:]
-- Runtime: 30.3 ms ± 145 μs $->$ *24.4* ms ± 195 μs
-- Allocations: 2882 $->$ *1816*
+- Runtime: 30.3 ms ± 145 μs $->$ *24.4 ms ± 195 μs* #h(1fr) *19.5%*
+- Allocations: 2882 $->$ *1816* #h(1fr) *36.9%*
 
 The Vector library has also seen performance improvements with #link("https://github.com/scikit-hep/vector/releases/tag/v1.6.1")[v1.6.1] and newer.
 By by-passing metadata overhead and grouping operations, the performance of the _whole_ Vector library is often improved by factors of 2 and more, see the $p_T$ calculation of a four-vector below:
@@ -194,9 +198,11 @@ By by-passing metadata overhead and grouping operations, the performance of the 
   languages: codly-languages,
   zebra-fill: princeton-zebra-fill,
   highlights: (
-    (line: 8, start: 3, end: 9, fill: princeton-orange),
-    (line: 12, start: 3, end: 9, fill: princeton-orange),
+    (line: 8, start: 3, end: 19, fill: princeton-orange),
+    (line: 12, start: 3, end: 21, fill: princeton-orange),
   ),
+  display-icon: true,
+  display-name: true,
 )
 ```python
 import vector
@@ -205,15 +211,15 @@ vector.register_awkward()
 vec = vector.awk([{"x": 1.0, "y": 2.0, "z": 3.0, "t": 4.0}])
 
 # pip install --upgrade "vector>1.6.0"
-%timeit vec.rho
-# 305 μs ± 659 ns per loop
+$timeit vec.rho
+# 305 μs ± 659 ns
 
 # pip install --upgrade "vector<1.6.0"
 %timeit vec.rho
-# 731 μs ± 2.26 μs per loop
+# 731 μs ± 2.26 μs
 ```
 
-These Vector improvements further bring down the runtime of the trijet mass reconstruction of the AGC with 100.000 events to *19.1* ms ± 203 μs (*18.2* ms ± 49.6 μs per loop) in the CPU (TypeTracer) backend.
+These Vector improvements further bring down the runtime of the trijet mass reconstruction of the AGC with 100.000 events to *19.1 ms ± 203 μs* (*18.2 ms ± 49.6 μs*) in the CPU (TypeTracer) backend.
 
 
 = #emoji.brain Memory improvements in Awkward Array and Uproot
@@ -281,12 +287,12 @@ Especially, the memory footprint of performing multiple reads of the same file w
 
 #clue(
   accent-color: princeton-orange,
-  title: "Additional information and tips",
+  title: "Additional Information and Tips",
   icon: emoji.clip,
 )[
     Checkout the new features and improvements in the Awkward Array world! \
     \
-    If you're already a coffea user: `coffea v2025.7` (July) release (and newer) includes all of these improvements. \
+    If you're already a coffea user: `coffea v2025.7` (July, CalVer) release (and newer) includes all of these improvements. \
     \
     Stay up-to-date and join us on the IRIS-HEP Slack workspace at #link("iris-hep.slack.com")[iris-hep.slack.com].
 ]
