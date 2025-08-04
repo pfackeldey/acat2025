@@ -27,14 +27,6 @@
 // poster content, function from `template.typ`
 #poster[
 
-// #abstract(title: "Summary of new features")[
-//     #emoji.label Named axis for Awkward Arrays \
-//     #emoji.sparkles Virtual Arrays for Awkward Array \
-//     #emoji.page RNTuple support in Uproot (reading and writing) \
-//     #emoji.fire Performance gains in Awkward Array and Vector \
-//     #emoji.brain Memory improvements in Awkward Array and Uproot \
-// ]
-
 = #emoji.label Named axis for Awkward Arrays
 
 You can now add named axis (or algebraic shapes) to `ak.Array`, use them with awkward's operations, and leverage a new named axis based indexing syntax:
