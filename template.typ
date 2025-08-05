@@ -24,9 +24,11 @@
           // Center
           [
             #place(horizon+center)[
-                #set text(size: 69pt, fill: black)
-                  *Recent developments in the Awkward Array world* \
-                #set text(size: 42pt)
+                #text(size: 70pt, fill: black)[
+                  *Recent developments in the Awkward Array world*
+                  #v(15%, weak: true)
+                ]
+                #text(size: 42pt)[
                   *Peter Fackeldey#super[1]*, 
                   Iason Krommydas#super[2], 
                   Ianna Osborne#super[1], 
@@ -35,6 +37,7 @@
                   \
                   Princeton University#super[1],
                   Rice University#super[2]
+                ]
               ]  
           ],
           [
