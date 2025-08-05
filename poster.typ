@@ -59,7 +59,7 @@ For more details, check out the #link("https://awkward-array.org/doc/main/user-g
 = #emoji.sparkles Virtual Arrays for Awkward Array
 
 Awkward Array does support virtual arrays, i.e. representing not-yet-loaded arrays in memory.
-These arrays are loaded on-demand when Awkward Arrays needs them to perform an operation.
+These arrays are loaded on-demand when Awkward Array needs them to perform an operation.
 An example of virtual arrays in the scope of the coffea 2025 project is shown in the following:
 
 #codly(
@@ -85,8 +85,8 @@ print(events.Jet.pt)
 # [??, ??, ??, ??, ..., ??, ??, ??, ??]
 ```<varray-1>
 
-`??` indicates that the values are not yet loaded into memory.
-You can access the values of these virtual arrays in two ways.
+`??` indicates that the values are not-yet-loaded into memory.
+You can access the values of these virtual arrays in two ways:
 
 1. Explicitly load them into memory using `ak.materialize()`:
 #codly(
@@ -133,7 +133,7 @@ print(log)
 ```
 
 The new virtual arrays in Awkward Array v2 have been carefully implemented at the lowest level enabling highly granular laziness.
-This integrates well with modern file formats like ROOT's RNTuple that allows reading data at the same high granularity.
+This integrates well with modern file formats like ROOT's RNTuple that allows reading data at the same level of granularity.
 
 
 = #emoji.page RNTuple support in Uproot (reading and writing)
@@ -219,7 +219,7 @@ vec = vector.awk([{"x": 1.0, "y": 2.0, "z": 3.0, "t": 4.0}])
 # 731 μs ± 2.26 μs
 ```
 
-These Vector improvements further bring down the runtime of the trijet mass reconstruction of the AGC with 100.000 events to *19.1 ms ± 203 μs* (*18.2 ms ± 49.6 μs*) in the CPU (TypeTracer) backend.
+These Vector improvements further bring the runtime of the trijet mass reconstruction of the AGC with 100.000 events down to *19.1 ms ± 203 μs* (*18.2 ms ± 49.6 μs*) with the CPU (TypeTracer) backend.
 
 
 = #emoji.brain Memory improvements in Awkward Array and Uproot
