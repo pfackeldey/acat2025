@@ -293,7 +293,7 @@ Especially, the memory footprint of performing multiple reads of the same file w
     \
     If you're already a coffea user: `coffea v2025.7` (July, CalVer) release (and newer) includes all of these improvements. \
     \
-    Stay up-to-date and join us on the IRIS-HEP Slack workspace at #link("iris-hep.slack.com")[iris-hep.slack.com].
+    Stay up-to-date and follow our projects on GitHub at #link("https://github.com/scikit-hep")[https://github.com/scikit-hep].
 ]
 
 ]
