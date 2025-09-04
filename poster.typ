@@ -175,7 +175,7 @@ print(rntuple["Age"].array())
 print(rntuple.arrays(["Age", "Cost", "Nation"]))
 # [{Age: 58, Cost: 11975, ...}, ..., {Age: 43, Cost: 12716, ...}]
 ```
-(full link to this rntuple file can be found #link("https://raw.githubusercontent.com/scikit-hep/scikit-hep-testdata/refs/heads/main/src/skhep_testdata/data/ntpl001_staff_rntuple_v1-0-0-0.root")[here].)
+(full link to this RNTuple file can be found #link("https://raw.githubusercontent.com/scikit-hep/scikit-hep-testdata/refs/heads/main/src/skhep_testdata/data/ntpl001_staff_rntuple_v1-0-0-0.root")[here].)
 
 = #emoji.fire Performance gains in Awkward Array and Vector
 
